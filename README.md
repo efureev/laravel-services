@@ -59,5 +59,5 @@ class ServiceManager extends \Fureev\Services\ServiceManager
 
 and rebind `services` into DI. Example, in `\App\Providers\AppServiceProvider` in register method:
 ```php
-$this->app->singleton(app('config')->get(ServiceManager::configSection() . '.name'), new ServiceManager($this->app));
+$this->app->instance(app('config')->get(ServiceManager::configSection() . '.name'), new ServiceManager($this->app));
 ```
