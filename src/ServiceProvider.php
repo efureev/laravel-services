@@ -25,8 +25,6 @@ class ServiceProvider extends SP
             __DIR__ . '/config/di.php' => config_path('di.php'),
         ]);
 
-        $this->app->singleton(app('config')->get(ServiceManager::configSection() . '.name'), function ($app) {
-            return new ServiceManager($app);
-        });
+        $this->app->singleton(app('config')->get(ServiceManager::configSection() . '.name'), new ServiceManager($this->app));
     }
 }
